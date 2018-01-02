@@ -3,7 +3,7 @@ package com.epam.laba.onlinestore.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "orders",
+@Table(name = "product",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
 public class Products {
     @Id
