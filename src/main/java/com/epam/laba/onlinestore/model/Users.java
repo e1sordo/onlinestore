@@ -9,6 +9,7 @@ import java.io.Serializable;
 public @Data
 class Users implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @Basic(optional = false)

@@ -10,6 +10,7 @@ import java.util.Date;
 public @Data
 class Orders implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

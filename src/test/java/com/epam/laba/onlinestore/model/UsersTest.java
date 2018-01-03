@@ -26,8 +26,8 @@ class UsersTest{
 //            System.out.println(resultsUser.toString());
 //        }
 //        Users user = new Users();
-//        user.name = "Artem";
-//        user.mail = "artem@mail.com";
+//        user.name = "ADmmin";
+//        user.mail = "admin@mail.com";
 //        user.password = "1369";
 //        session.save(user);
 
