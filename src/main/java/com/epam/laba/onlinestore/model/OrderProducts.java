@@ -1,19 +1,20 @@
 package com.epam.laba.onlinestore.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Data;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "order_products")
-public class OrderProducts {
+public @Data
+class OrderProducts implements Serializable{
     @Id
-    @Column(name = "id_order", nullable = false, length = 11)
-    private int idOrder;
+    private int id;
 
-    @Id
-    @Column(name = "id_product", nullable = false, length = 11)
-    private int idProduct;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    public Orders idOrder;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    public Products idProduct;
 
 }

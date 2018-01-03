@@ -1,29 +1,29 @@
 package com.epam.laba.onlinestore.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "users",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
-public class Users {
+public @Data
+class Users implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, length = 11)
     private int id;
 
-    @Column(name = "name", nullable = false, length = 20)
-    private String name;
+    @Basic(optional = false)
+    public String name;
 
-    @Column(name = "mail", nullable = false, length = 20)
-    private String mail;
+    @Basic(optional = false)
+    public String mail;
 
-    @Column(name = "password", nullable = false, length = 20)
-    private String password;
+    @Basic(optional = false)
+    public String password;
 
-    @Column(name = "role_user", nullable = false, length = 20)
-    private String role_user;
+    @Basic(optional = false)
+    public String role_user = "ROLE_USER";
 
-    @Column(name = "added_blacklist", nullable = false, length = 20)
-    private boolean added_blacklist;
+    @Basic(optional = false)
+    private boolean added_blacklist = false;
 
 }

@@ -1,22 +1,22 @@
 package com.epam.laba.onlinestore.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table(name = "product",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
-public class Products {
+public @Data
+class Products implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, length = 11)
     private int id;
 
-    @Column(name = "name", nullable = false, unique = true, length = 20)
+    @Basic(optional = false)
     private String name;
 
-    @Column(name = "description", nullable = false, unique = true, length = 20)
+    @Basic(optional = false)
     private String description;
 
-    @Column(name = "price", nullable = false, length = 20)
+    @Basic(optional = false)
     private double price;
 }

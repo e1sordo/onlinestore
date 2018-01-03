@@ -1,30 +1,29 @@
 package com.epam.laba.onlinestore.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "orders",
-        uniqueConstraints = {@UniqueConstraint(columnNames = {"id"})})
-public class Orders {
+public @Data
+class Orders implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false, unique = true, length = 11)
     private int id;
 
-    @Id
-    @Column(name = "id_user", nullable = false, length = 11)
-    private int id_user;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Users id_user;
 
-    @Column(name = "num_order", nullable = false, unique = true, length = 20)
+    @Basic(optional = false)
     private String numberOrder;
 
-    @Column(name = "cost_order", nullable = false, length = 20)
-    private double cost;
+    @Basic(optional = false)
+    private double cost = 0;
 
-    @Column(name = "date_creation", nullable = false, length = 20)
+    @Basic(optional = false)
     private Date creation;
 
-    @Column(name = "order_done", nullable = false, length = 20)
+    @Basic(optional = false)
     private boolean done;
 }
