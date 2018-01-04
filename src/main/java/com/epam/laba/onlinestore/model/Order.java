@@ -4,26 +4,26 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 public @Data
-class Users implements Serializable{
+class Order implements Serializable{
     @Id
     private int id;
 
-    @Basic(optional = false)
-    public String name;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private User id_user;
 
     @Basic(optional = false)
-    public String mail;
+    private String numberOrder;
 
     @Basic(optional = false)
-    public String password;
+    private double cost = 0;
 
     @Basic(optional = false)
-    public String role_user = "ROLE_USER";
+    private Date creation;
 
     @Basic(optional = false)
-    private boolean added_blacklist = false;
-
+    private boolean done;
 }

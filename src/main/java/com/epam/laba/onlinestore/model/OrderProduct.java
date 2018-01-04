@@ -7,14 +7,14 @@ import java.io.Serializable;
 
 @Entity
 public @Data
-class OrderProducts implements Serializable{
+class OrderProduct implements Serializable{
     @Id
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    public Orders idOrder;
+    public Order idOrder;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    public Products idProduct;
+    public Product idProduct;
 
 }

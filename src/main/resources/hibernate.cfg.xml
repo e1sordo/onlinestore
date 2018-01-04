@@ -6,9 +6,9 @@
     <session-factory>
         <!-- Database connection properties - Driver, URL, user, password -->
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/Epam_Proj</property>
-        <property name="hibernate.connection.username">postgres</property>
-        <property name="hibernate.connection.password">1369</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/onlinestore</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.connection.password">admin</property>
         <!-- Connection Pool Size -->
         <property name="hibernate.connection.pool_size">1</property>
 
@@ -23,11 +23,11 @@
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL94Dialect</property>
 
         <!-- Drop and re-create the database schema on startup -->
-        <property name="hbm2ddl.auto">create</property>
-        <mapping class="com.epam.laba.onlinestore.model.Users"/>
-        <mapping class="com.epam.laba.onlinestore.model.Orders"/>
-        <mapping class="com.epam.laba.onlinestore.model.Products"/>
-        <mapping class="com.epam.laba.onlinestore.model.OrderProducts"/>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <mapping class="com.epam.laba.onlinestore.model.User"/>
+        <mapping class="com.epam.laba.onlinestore.model.Order"/>
+        <mapping class="com.epam.laba.onlinestore.model.Product"/>
+        <mapping class="com.epam.laba.onlinestore.model.OrderProduct"/>
 
     </session-factory>
 </hibernate-configuration>

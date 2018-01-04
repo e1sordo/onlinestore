@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Entity
 public @Data
-class Products implements Serializable{
+class Product implements Serializable{
     @Id
     private int id;
 
@@ -19,4 +19,14 @@ class Products implements Serializable{
 
     @Basic(optional = false)
     private double price;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
