@@ -9,6 +9,7 @@ import java.io.Serializable;
 public @Data
 class OrderProduct implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
