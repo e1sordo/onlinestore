@@ -27,7 +27,6 @@
         <mapping class="com.epam.laba.onlinestore.model.Users"/>
         <mapping class="com.epam.laba.onlinestore.model.Orders"/>
         <mapping class="com.epam.laba.onlinestore.model.Products"/>
-        <mapping class="com.epam.laba.onlinestore.model.OrderProducts"/>
 
     </session-factory>
 </hibernate-configuration>

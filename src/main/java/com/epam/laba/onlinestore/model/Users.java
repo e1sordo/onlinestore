@@ -1,30 +1,31 @@
 package com.epam.laba.onlinestore.model;
 
 import lombok.Data;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public @Data
 class Users implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Basic(optional = false)
     public String name;
 
-    @Basic(optional = false)
     public String mail;
 
-    @Basic(optional = false)
     public String password;
 
-    @Basic(optional = false)
     public String role_user = "ROLE_USER";
 
-    @Basic(optional = false)
     private boolean added_blacklist = false;
+
+    @OneToMany
+    private Set<Orders> orders = new HashSet<>();
 
 }
