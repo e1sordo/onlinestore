@@ -25,6 +25,7 @@ public class Requester {
                 text.append(product.getName()).append("(").append(product.getDescription()).append(") ");
             }
         }
+
         return text.toString();
     }
 
