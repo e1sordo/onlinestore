@@ -4,27 +4,33 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.*;
 
 @Entity
+@Table(name = "orders")
 public @Data
-class Order implements Serializable{
+class Order implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    private User id_user;
-
-    @Basic(optional = false)
     private String numberOrder;
 
-    @Basic(optional = false)
     private double cost = 0;
 
-    @Basic(optional = false)
-    private Date creation;
+    private Date creation = new Date();
 
-    @Basic(optional = false)
     private boolean done;
+
+    @OneToMany
+    @JoinTable(
+            name = "order_products",
+            joinColumns = @JoinColumn(name = "id_order", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id")
+    )
+    private List<Product> products = new ArrayList<>();
+
+    public double getCost() {
+        return products.stream().mapToDouble(Product::getPrice).sum();
+    }
 }
