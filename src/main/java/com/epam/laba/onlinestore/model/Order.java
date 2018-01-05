@@ -1,17 +1,14 @@
 package com.epam.laba.onlinestore.model;
 
 import lombok.Data;
-import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public @Data
-class Orders implements Serializable{
+class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -30,5 +27,9 @@ class Orders implements Serializable{
             joinColumns = @JoinColumn(name = "id_order", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "id_product", referencedColumnName = "id")
     )
-    private Set<Products> set = new HashSet<>();
+    private List<Product> products = new ArrayList<>();
+
+    public double getCost() {
+        return products.stream().mapToDouble(Product::getPrice).sum();
+    }
 }

@@ -1,19 +1,22 @@
 package com.epam.laba.onlinestore.model;
 
 import lombok.Data;
-import org.hibernate.annotations.Where;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public @Data
-class Users implements Serializable{
+class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     public String name;
 
@@ -26,6 +29,6 @@ class Users implements Serializable{
     private boolean added_blacklist = false;
 
     @OneToMany
-    private Set<Orders> orders = new HashSet<>();
+    private List<Order> orders = new ArrayList<>();
 
 }
