@@ -6,18 +6,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "products")
 public @Data
-class Products implements Serializable{
+class Product implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Basic(optional = false)
     private String name;
 
-    @Basic(optional = false)
     private String description;
 
-    @Basic(optional = false)
     private double price;
 }

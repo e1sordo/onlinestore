@@ -4,27 +4,28 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "users")
 public @Data
-class Users implements Serializable{
+class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-    @Basic(optional = false)
     public String name;
 
-    @Basic(optional = false)
     public String mail;
 
-    @Basic(optional = false)
     public String password;
 
-    @Basic(optional = false)
     public String role_user = "ROLE_USER";
 
-    @Basic(optional = false)
     private boolean added_blacklist = false;
+
+    @OneToMany
+    private List<Order> orders = new ArrayList<>();
 
 }

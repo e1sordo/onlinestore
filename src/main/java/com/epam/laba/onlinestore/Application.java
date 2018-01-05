@@ -1,11 +1,11 @@
-package com.epam.laba.onlinestore.controller;
+package com.epam.laba.onlinestore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Runner {
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Runner.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
